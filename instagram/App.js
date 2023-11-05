@@ -1,14 +1,12 @@
 import { NavigationContainer } from '@react-navigation/native';
+import StackNavigator from './Navigation/StackNavigator'
 import {StatusBar} from 'react-native';
-import Navigation from './Navigation/TabNavigation';
-import Login from './Screens/Login';
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Navigation />
-      {/* <Login /> */}
-      <StatusBar />
+      <StackNavigator />
+      {/* <StatusBar /> */}
     </NavigationContainer>
   );
 }

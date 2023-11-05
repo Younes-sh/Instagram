@@ -2,7 +2,7 @@ import { View, Text, StyleSheet } from "react-native";
 import Register from "../Components/Login/LoginForm";
 import Brand from '../Components/Login/Brand';
 
-export default function Home() {
+export default function Login() {
   return (
     <View style={styles.container}>
       <Brand />

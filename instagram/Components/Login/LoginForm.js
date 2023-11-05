@@ -1,10 +1,12 @@
 import { StyleSheet, View, TextInput, Text, Pressable } from "react-native";
+import { useNavigation } from '@react-navigation/native';
 // Formik npm i formik
 import { useFormik } from "formik";
 // Package validation YUP    npm i yup
 import * as Yup from "yup";
 
 const register = () => {
+  const navigation = useNavigation();
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -17,12 +19,17 @@ const register = () => {
       password: Yup.string().required("required").min(8),
         // .max(15, " Must be 15 character or less")
     }),
-    onSubmit: (values) => {
-      // alert(JSON.stringify(values));
-      console.log(values)
+    onSubmit: () => {
+      alert('button fonction')
     },
-
+    
   });
+
+  // Formik kar nemi kard  baray test as  clickhand estefadekardam
+  const clickHand = () => {
+    navigation.replace('Home')
+    // alert('Click ca fonction')
+  }
 
   return (
     <View style={styles.wrapper}>
@@ -46,6 +53,8 @@ const register = () => {
         ) : null}
 
 
+
+
 {/* PASSWORD */} 
 
 
@@ -65,8 +74,11 @@ const register = () => {
           <Text style={{ color: "red" }}>{formik.errors.password}</Text>
         ) : null}
 
-      <Pressable  onPress={formik.handleSubmit} style={styles.button}  >
+      <Pressable  onPress={formik.handleSubmit} style={styles.button}   >
         <Text style={styles.textButton}>Log in</Text>
+      </Pressable>
+      <Pressable onPress={clickHand} >
+        <Text>Click</Text>
       </Pressable>
     </View>
   );
